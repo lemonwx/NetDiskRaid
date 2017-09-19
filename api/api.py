@@ -7,7 +7,7 @@ from urllib.parse import urlencode
 
 from lmutils import debug_info
 
-from config.common_url import ls_url, download_url
+from config.common_url import ls_url, download_url, delete_url
 from config.config_user_1 import cnf as cnf_1
 from config.config_user_2 import cnf as cnf_2
 from Err import errors
@@ -120,7 +120,7 @@ def download(fs_id, local_save_file, cnf, dHeaders):
     """
     download file form pan.baidu.comp
     fs_id : get by call query(), remote tgt file's id
-    local_save_file : 下载本地文件保存路径
+    local_save_file : 下载文件 本地保存路径
     """
     params = {
         "sign":	"cVYqF3uN7a4E4sdrjs30qnPR7zzxJ8aJOVAsbJ9ntxcaAHUPrlzlMw==",
@@ -142,9 +142,31 @@ def download(fs_id, local_save_file, cnf, dHeaders):
     result = r.json()
     dlink = result['dlink'][0]['dlink']
     print(debug_info(), "get link:", dlink)
-    
+
     r = requests.get(dlink, cookies=cookies, headers=dHeaders)
     f = open(local_save_file, "wb")
     f.write(r.content)
     f.flush()
     f.close()
+
+def delete(remote_tgt_files, cnf, dHeaders):
+    """delete remote_tgt_files on pan.baidu.com"""
+    params = {
+        "opera":"delete",
+        "async":"2",
+        "channel":"chunlei",
+        "web":"1",
+        "app_id":"250528",
+        "bdstoken":"990e1ae3bd8df4d067740a7d7b75c173",
+        "logid":"MTUwNTgyOTI5MjI3NTAuNDEzMTExOTY5OTM1NDg3Nw",
+        "clienttype":"0"
+    }
+    cookies = {item['name']:item['value'] for item in cnf['upload_file_cookies']}
+    data = {'filelist':remote_tgt_files}
+    url = "{}?{}".format(delete_url, urlencode(params))
+    data = urlencode(data).replace("%27", "%22")
+
+    print(debug_info(), url)
+    print(debug_info(), data)
+    r = requests.post(url, cookies=cookies, headers=dHeaders, data=data)
+    print(debug_info(), r.json())
