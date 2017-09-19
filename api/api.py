@@ -58,7 +58,10 @@ def upload(local_src_file, remote_tgt_file, cnf, dHeaders):
 
 
 def ls(remote_dir, cnf, dHeaders):
-    
+    """
+    remote_dir : ls / 
+    cnf : 
+    """
     params = {
         'dir':remote_dir
     }
@@ -82,7 +85,11 @@ def ls(remote_dir, cnf, dHeaders):
     print("dirs:\n", "\n".join(dirs))
 
 def query(remote_file, cnf, dHeaders):
-    
+    """
+    get a file's fs_id
+    remote_file:
+    cnf:
+    """
     remote_dir = os.path.dirname(remote_file)
     params = {
         'dir':remote_dir
@@ -110,6 +117,11 @@ def query(remote_file, cnf, dHeaders):
     
 
 def download(fs_id, local_save_file, cnf, dHeaders):
+    """
+    download file form pan.baidu.comp
+    fs_id : get by call query(), remote tgt file's id
+    local_save_file : 下载本地文件保存路径
+    """
     params = {
         "sign":	"cVYqF3uN7a4E4sdrjs30qnPR7zzxJ8aJOVAsbJ9ntxcaAHUPrlzlMw==",
         "timestamp":	"1505823087",
@@ -130,10 +142,9 @@ def download(fs_id, local_save_file, cnf, dHeaders):
     result = r.json()
     dlink = result['dlink'][0]['dlink']
     print(debug_info(), "get link:", dlink)
-
+    
     r = requests.get(dlink, cookies=cookies, headers=dHeaders)
     f = open(local_save_file, "wb")
     f.write(r.content)
     f.flush()
     f.close()
-    
