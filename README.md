@@ -18,3 +18,4 @@
 ## todolist
 - 大文件适配
 - raid 支持适配
+- 操作 api 支持
