@@ -39,9 +39,10 @@ data = {
 }
 
 #files = {"file":open("/home/lim/Downloads/sqlalchemy-master.zip", "rb")}
-files = {"file":open("__pycache__/config.cpython-35.pyc", "rb")}
+files = {"file":open("/home/lim/PyMySQL/pymysql/connections.py", "rb")}
 dheaders = {"User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:55.0) Gecko/20100101 Firefox/55.0"}
 
+print(123456)
 r = requests.post(url_upload, cookies=dcookie, headers=dheaders, files=files)
 
 print(r.status_code)

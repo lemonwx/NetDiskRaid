@@ -91,6 +91,8 @@ dheaders = {
 data="path=%2F{filename}&size={filesize}&uploadid=N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU3NDIxMjg6NjA1MTEwNjYwODM3MDIzMzU1OQ%3D%3D&block_list=%5B%22{md5}%22%5D".format(filename="worilegou.py", filesize=4801, md5='4a0276efbc2240817f437976d84b2f85')
 data="path=%2F{filename}&size={filesize}&uploadid=N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU3NDIxMjg6NjA1MTEwNjYwODM3MDIzMzU1OQ%3D%3D&block_list=%5B%22{md5}%22%5D".format(filename="laozicaonima.py", filesize=198163, md5='7ea42a91b6e4c7e509b815b35db7310c')
 data="path=%2F{filename}&size={filesize}&uploadid=N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU3NDIxMjg6NjA1MTEwNjYwODM3MDIzMzU1OQ%3D%3D&block_list=%5B%22{md5}%22%5D".format(filename="py.conf.txt", filesize=2752, md5='7389b31fc8c1f668ecdea402b1c673b7')
+data="path=%2F{filename}&size={filesize}&uploadid=N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU3NDIxMjg6NjA1MTEwNjYwODM3MDIzMzU1OQ%3D%3D&block_list=%5B%22{md5}%22%5D".format(filename="conn.py", filesize=57582, md5='86c175668519f994c1def24b58853d43')
+print("----------", data)
 #r = requests.post(url_create, cookies=t, headers=dheaders, data="path=%2Fworinima.py&size=7746&uploadid=N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU3NDIxMjg6NjA1MTEwNjYwODM3MDIzMzU1OQ%3D%3D&block_list=%5B%225db6343671e67b5af54239c81cb83b70%22%5D")
 r = requests.post(url_create, cookies=t, headers=dheaders, data=data)
 print(dir(r.request))
