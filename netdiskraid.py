@@ -1,5 +1,6 @@
 """command line support"""
 import time
+import sys
 import argparse
 import requests
 from urllib.parse import urlencode
@@ -13,7 +14,7 @@ from config.config_user_2 import cnf as cnf_2
 from Err import errors
 from utils import construct_create_file_cookies
 
-cnf = cnf_2
+cnf = cnf_1
 
 dHeaders = {"User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:55.0) Gecko/20100101 Firefox/55.0"}
 

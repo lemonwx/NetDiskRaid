@@ -14,6 +14,7 @@ from Err import errors
 from utils import construct_create_file_cookies
 
 
+
 def upload(local_src_file, remote_tgt_file, cnf, dHeaders):
     """
     local_src_file:  local file abs path
@@ -26,8 +27,11 @@ def upload(local_src_file, remote_tgt_file, cnf, dHeaders):
     file_size = file_handler.seek(0, 2)
     file_handler.seek(0)
     files = {"file":file_handler}
+
+
     upload_file_cookies = {item['name']:item['value'] for item in cnf['upload_file_cookies']}
     r = requests.post(cnf['url_upload'], cookies=upload_file_cookies, headers=dHeaders, files=files)
+    
     result = r.json()
     print(debug_info(), result)
     
@@ -122,23 +126,13 @@ def download(fs_id, local_save_file, cnf, dHeaders):
     fs_id : get by call query(), remote tgt file's id
     local_save_file : 下载文件 本地保存路径
     """
-    params = {
-        "sign":	"cVYqF3uN7a4E4sdrjs30qnPR7zzxJ8aJOVAsbJ9ntxcaAHUPrlzlMw==",
-        "timestamp":	"1505823087",
-        "fidlist":	[fs_id],
-        #"fidlist":	[431487535672818],
-        "type":	"dlink",
-        "channel":	"chunlei",
-        "web":	"1",
-        "app_id":	"250528",
-        "bdstoken":	"48ff85ca76298e5c69329ea095366e06",
-        "logid":	"MTUwNTgyMzYyNTc1MTAuNzg4MTU4NzU0MzI5NDcxOA",
-        "clienttype":	"0",
-    }
+   
+    params = cnf['data_download']
+    params['fidlist'] = [fs_id,]
     url = "{}?{}".format(download_url, urlencode(params))
     cookies = {item['name']:item['value'] for item in cnf['upload_file_cookies']}
     r = requests.get(url, cookies=cookies, headers=dHeaders)
-    print(debug_info(), "recv http code: ", r.status_code)
+    print(debug_info(), "recv http code: ", r.status_code, url[:10])
     result = r.json()
     dlink = result['dlink'][0]['dlink']
     print(debug_info(), "get link:", dlink)

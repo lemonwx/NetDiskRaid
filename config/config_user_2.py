@@ -2,9 +2,19 @@
 cnf = {
     'url_upload' : "https://c3.pcs.baidu.com/rest/2.0/pcs/superfile2?method=upload&app_id=250528&channel=chunlei&clienttype=0&web=1&BDUSS=pansec_DCb740ccc5511e5e8fedcff06b081203-rVnqtbMwpk67FlK6IPwxdQkx41DPm6jtIyaUZeZBTjs3MTNOUpBXsyKLpfeKLJtdYkLnjV6u36rJ%2BJtB8JeF2ariSHwXKt8Wv6yAfxgpRmgvnIWr%2B7TRzCLtGngWgD%2Bvc%2BBPpoqQWBUvs4H%2F%2BgBtGw%2FTGW4Q6WXFi%2BpUYFUX4OCQCMob6%2Fsz3WbxCRv9YRH1MZpWhaQo5e04mlKRu2WaAGZu65itdMjo7mnggqec%2FTmsAMJJpuns2dIjXcX3fkCpzKaB%2FrJhhYfZisMRNVWpGw%3D%3D&logid=MTUwNTgwODkyODE4MTAuNzU0ODIxOTc4NjI5Nzg2NQ==&path=%2F1.pdf&uploadid=N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU4MDg5OTE6NjA2OTA1NDg4MDMxMzE0MzI4Mw==&partseq=0",
     'url_create' : "https://pan.baidu.com/api/create?isdir=0&rtype=1&channel=chunlei&web=1&app_id=250528&bdstoken=990e1ae3bd8df4d067740a7d7b75c173&logid=MTUwNTgwODk5NzM0MTAuNjU2OTMxMTAxMzUxMTE4OA==&clienttype=0",
-
     'create_file_cookies' : "BAIDUID=F3F29477418394068E7AD5E1CA04867A:FG=1; PSTM=1505715068; PANWEB=1; panlogin_animate_showed=1; BIDUPSID=474AD4AACE66843304525B7042332DC7; FP_LASTTIME=1505805494388; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; PSINO=3; H_PS_PSSID=1426_21125_22160; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; FP_UID=9e0b2ed8648d0811a538a0055e1f6ef1; pan_login_way=1; BDUSS=3FJZlZRUFdWeXhRbGFiR21CRGVRcDRxdU9mflVqUTBCb344MWFYTmpkOGNYLWhaTVFBQUFBJCQAAAAAAAAAAAEAAADOyF4sztLSstKqtbGyv7OkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABzSwFkc0sBZT; STOKEN=cc900768c1ac0bc78fa31e3474509535443dec5d2cca8a470f71f1ae6d994126; SCRC=7a845974be76b8c6286c172441bf9230; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1505737478,1505738322,1505785169,1505795212; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1505808928; cflag=15%3A3; PANPSC=10739445766785013326%3Au4Z6slSSmfm%2FMxM5T5NXcun90oj%2BY%2FIsoJhNDqeencsqlDKqEVl%2BkLye0p4N%2BJGFgPQ3h6Vk8O%2Blu9Gzyv2pXxOAD5r1J1nbGmDl6tY3bBziuV7Al%2Blticv%2BltDwt9lVFmC7XQqR2aV61HK7zNK1qitY6oDerc8JwO6IUlyEdXI5u4Owi7HyOET6EtWQMy2KSSzrHYofj1Q%3D",
-
+    'data_download' : {
+        "sign":"cVN/QSmJvfME7pAx3pfwryKL6z38fMeGYlN9actl5kRMCSJerlmzMA==",
+        "timestamp":"1505896161",
+        "fidlist":[118005439839218],
+        "type":"dlink",
+        "channel":"chunlei",
+        "web":"1",
+        "app_id":"250528",
+        "bdstoken":"990e1ae3bd8df4d067740a7d7b75c173",
+        "logid":"MTUwNTg5NjIyODY4MzAuNzA0MTg3NjA5MDMxNjE2Ng==",
+        "clienttype":"0",
+    },
     'upload_file_cookies' : [
     {
         "domain": ".baidu.com",
