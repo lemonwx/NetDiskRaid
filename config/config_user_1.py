@@ -1,17 +1,19 @@
 # wx
 cnf = {
     'url_upload' : "https://c3.pcs.baidu.com/rest/2.0/pcs/superfile2?method=upload&app_id=250528&channel=chunlei&clienttype=0&web=1&BDUSS=pansec_DCb740ccc5511e5e8fedcff06b081203-%2FFFMCA4DJPcik6KwNGj7jlZIyODzE0kdv5RCc5IaWiv6wTtI6FZEylCA4eB6CqAyY%2BuvM%2BI96LhvONm46s90BAp2988o2SAEmsMdmm0sAkKg9pQmnGda1%2BWQEQZXJxvhdc%2BjIUg%2BLSBO06dIuBba24mc2vsN2A8V%2FOm73uZ1%2Bm%2BWwDjg1W1gtoJFiFDkVeSKCdyZ4ZrVZOiLh8Y2EYXLp0ZU3WjVml6u4giSEFp46l2Yju2IkdKMqHKzblWZoz7fhHVRsQqf8fQlPWdTXUjT9A%3D%3D&logid=MTUwNTgwODYxMDc4NDAuMDA3NjA0NDQwMzEwMDIzNDk3&path=%2F2.png&uploadid=N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU4MDg2NzQ6NjA2ODk2OTkzMDE1MzY4MDE5Mg==&partseq=0",
-    'data_download': {
-        "sign":	"dwR8F3yOuKFV4pZsiJ+ir3vQvT//esvbP157bs4zsx4bBSYO+gjiaw==",
-        "timestamp":	"1505910999",
-        "fidlist":	[147838494384900],
+    
+    'data_download' : {
+        "sign":	"pxtFOcFWGm6mATAeUwCQpgF8/2OkaDvXLxey0cEG6X01EZCreCzV1w==",
+        "timestamp":	"1505955682",
+        "fidlist":	[571397215715864],
         "type":	"dlink",
         "channel":	"chunlei",
         "web":	"1",
         "app_id":	"250528",
         "bdstoken":	"48ff85ca76298e5c69329ea095366e06",
-        "logid":	"MTUwNTkxMTAwNzAzMTAuMDA4NjAzNDY0OTQ5Mjc5MTA1",
+        "logid":	"MTUwNTk1NTgxNjI5NDAuNTY5ODczNzM5NTk3NDU4MQ",
         "clienttype":	"0",
+
     },
     'url_create' : "https://pan.baidu.com/api/create?isdir=0&rtype=1&channel=chunlei&web=1&app_id=250528&bdstoken=aec1b7180a3efb3a5a893b5fb129e18e&logid=MTUwNTgwODY3NTUzMTAuNTUxNTk3ODI4OTMyMTg4MQ==&clienttype=0",
     'create_file_cookies' : "BAIDUID=F3F29477418394068E7AD5E1CA04867A:FG=1; PSTM=1505715068; PANWEB=1; panlogin_animate_showed=1; BIDUPSID=474AD4AACE66843304525B7042332DC7; FP_LASTTIME=1505805494388; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; PSINO=3; H_PS_PSSID=1426_21125_22160; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; FP_UID=9e0b2ed8648d0811a538a0055e1f6ef1; BDUSS=xUZDNUZzlDaHJ3fkVBQ0t3MzhJUnQ0OTl5YnpwYlY4Z1N-a35-WGY1ZmRYZWhaTVFBQUFBJCQAAAAAAAAAAAEAAABWD1hhwO7N9dCmNzI3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN3QwFnd0MBZbU; pan_login_way=1; STOKEN=e4dc7754ccbe89e000853bcb035cc6c4b24cf7aecc4feb13f7069799a07536ba; SCRC=d91f1e6eab976b5a8cd2d9292f8e42eb; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1505737478,1505738322,1505785169,1505795212; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1505808611; cflag=15%3A3; PANPSC=9354659557846423830%3AC1EvAaxZsiCWbM9yzQLjSrHQG6qeixv0KdwfHYxEVH0Jf%2BrOGj87LgCe5Tx58Rx6E4APmvUnWdsaYOXq1jdsHEutsx83ZjT3JsQph6kIa9mmHq87l3cmso%2FxfFMkpam4dxH9AjPSPnX9Myo4%2FDUtkStY6oDerc8JwO6IUlyEdXI5u4Owi7HyOET6EtWQMy2KSSzrHYofj1Q%3D",
