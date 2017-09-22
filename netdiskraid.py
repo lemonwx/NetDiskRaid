@@ -7,8 +7,9 @@ from urllib.parse import urlencode
 
 from lmutils import debug_info
 
-from api.api import upload, ls, download, query, delete
+from api.api import upload, ls, download, query, delete, dHeaders
 from api import Writer, Reader
+from api.http import HttpWriter, HttpReader
 from config.config import charNum, groupNum, tgt_dir
 from config.common_url import ls_url
 from config.config_user_1 import cnf as cnf_1
@@ -18,13 +19,11 @@ from utils import construct_create_file_cookies
 
 cnf = cnf_1
 
-dHeaders = {"User-Agent":"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:55.0) Gecko/20100101 Firefox/55.0"}
-
-def local_write(local_file):
+def local_write(local_file, stream_class=Writer.Writer):
     # 从本地文件读取, 拆分后写入到  本地的 thds 个文件
     thds = groupNum
     BLOCK = charNum
-    outs = [Writer.Writer(idx, tgt_dir+"/"+local_file) for idx in range(0, thds)]
+    outs = [stream_class(idx, tgt_dir+"/"+local_file, local_file, cnf) for idx in range(0, thds)]
     for o in outs:
         o.start()
         print(debug_info(), o)
@@ -46,12 +45,12 @@ def local_write(local_file):
 
     print(debug_info, "write done")
 
-def local_read(local_file):
+def local_read(local_file, stream_class=Reader.Reader):
     # 从本地的 thds 个文件 分别读取后,写入到同一个文件
     thds = groupNum
     BLOCK = charNum
     of = open(local_file+"_merge", "wb")
-    infs = [Reader.Reader(idx, tgt_dir+"/"+local_file) for idx in range(0, thds)]
+    infs = [stream_class(idx, tgt_dir+"/"+local_file) for idx in range(0, thds)]
     for i in infs:
         i.start()
     
@@ -59,12 +58,16 @@ def local_read(local_file):
 
     # 判断是否有一个线程 已经完成buffer中所有块的写入
     # 有线程结束,则表示其他线程要么也已经写入结束,或者还剩最后一个块需要写入 (因为 写入本地文件时是按照线程号 顺序读取的, 若该线程中 buffer 为空, 会一直等待)
-    cur_status = reduce(lambda x,y:x.bEndFile or y.bEndFile, infs)
+    #print(debug_info(), [i.bEndFile for i in infs])
+    
+    cur_status = reduce(lambda x,y:x or y.bEndFile if isinstance(x, bool) else x.bEndFile or y.bEndFile, 
+        infs)
     print(debug_info(), [i.bEndFile for i in infs], cur_status)
     while not cur_status:
         for i in infs:
             of.write(i.getStr())
-        cur_status = reduce(lambda x,y:x.bEndFile or y.bEndFile, infs)
+        cur_status = reduce(lambda x,y:x or y.bEndFile if isinstance(x, bool) else x.bEndFile or y.bEndFile, 
+            infs)
     else:
         for i in infs:
             tmp = i.getStr()
@@ -101,6 +104,13 @@ def main(args):
             local_write(local_file)
         if method == "read":
             local_read(local_file)
+    elif args.http:
+        method, local_file = args.http
+        if method == "write":
+            local_write(local_file,HttpWriter.HttpWriter)
+        if method == "read":
+            pass
+            #local_read(local_file, HttpReader.HttpReader)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -111,6 +121,7 @@ if __name__ == '__main__':
     group.add_argument("-query", nargs=1, metavar='file', help="query file's fs_id")
     group.add_argument("-delete", nargs=1, metavar='file', help="query file's fs_id")
     group.add_argument("-local", nargs=2, metavar='file', help="query file's fs_id")
+    group.add_argument("-http", nargs=2, metavar='file', help="query file's fs_id")
 
     args = parser.parse_args()
     main(args)

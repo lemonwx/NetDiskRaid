@@ -1,3 +1,4 @@
+"""read buffer from local disk"""
 import time
 import threading
 import queue
@@ -10,6 +11,7 @@ class Reader(threading.Thread):
         self.buffer = queue.Queue()
         self.thdIdx = thdIdx
         self.ifilename = "{}_{}".format(InFileName, self.thdIdx)
+        print(debug_info(), self.ifilename)
         self.bEndFile = False
         threading.Thread.__init__(self)
     def run(self):
@@ -19,7 +21,6 @@ class Reader(threading.Thread):
                 while True:
                     line += next(thdInFileStream)
                     while len(line) >= charNum:
-                        print(debug_info(), line[:charNum])
                         self.buffer.put(line[:charNum])
                         line = line[charNum:]
             except StopIteration:
@@ -38,6 +39,7 @@ class Reader(threading.Thread):
             if tmp is None:
                 self.bEndFile = True
                 tmp = b''
+            print(debug_info(), tmp)
             return tmp
     def __str__(self):
         return self.ifilename

@@ -7,7 +7,7 @@ from urllib.parse import urlencode
 
 from lmutils import debug_info
 
-from config.common_url import ls_url, download_url, delete_url
+from config.common_url import ls_url, download_url, delete_url, dHeaders
 from config.config_user_1 import cnf as cnf_1
 from config.config_user_2 import cnf as cnf_2
 from Err import errors
@@ -15,7 +15,7 @@ from utils import construct_create_file_cookies
 
 
 
-def upload(local_src_file, remote_tgt_file, cnf, dHeaders):
+def upload(local_src_file, remote_tgt_file, cnf, dHeaders=dHeaders):
     """
     local_src_file:  local file abs path
     remote_tgt_file: abs path on pan.baidu.com
