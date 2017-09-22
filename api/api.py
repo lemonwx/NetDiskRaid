@@ -43,12 +43,13 @@ def upload(local_src_file, remote_tgt_file, cnf, dHeaders=dHeaders):
     data = {
         'path' : remote_tgt_file,
         'size' : file_size,
-        'uploadid' : "N1-MTIxLjIyNS4xMTAuMTA4OjE1MDU4MDcyMDM6NjA2ODU3NDkwMDk3NDQ1NzIzMQ==",
+        'uploadid' : "N1-MjE4LjIuMTEzLjE4MjoxNTA2MDcxNjY4OjYxMzk1NjY2NDgyNDU1Mzk1NjA=",
         'block_list' : [upload_file_md5],
     }
     
     # ' : %27, " : %22
     data = urlencode(data).replace("%27", "%22")
+    print(debug_info(), data)
     d_create_file_cookies = construct_create_file_cookies(cnf['create_file_cookies'])
     r = requests.post(cnf['url_create'], cookies=d_create_file_cookies, headers=dHeaders, data=data)
     result = r.json()
@@ -72,7 +73,7 @@ def ls(remote_dir, cnf, dHeaders):
     url = "{}?{}".format(ls_url, urlencode(params))
     cookies = {item['name']:item['value'] for item in cnf['upload_file_cookies']}
     r = requests.get(url, cookies=cookies, headers=dHeaders)
-    print(debug_info(), "recv http code: ", r.status_code, url)
+    print(debug_info(), "recv http code: ", r.status_code, url, cnf['cnf_idx'])
     result = r.json()
     errno = result['errno']
 
@@ -88,7 +89,7 @@ def ls(remote_dir, cnf, dHeaders):
     print("files:\n", "\n".join(files))
     print("dirs:\n", "\n".join(dirs))
 
-def query(remote_file, cnf, dHeaders):
+def query(remote_file, cnf, dHeaders=dHeaders):
     """
     get a file's fs_id
     remote_file:
@@ -120,7 +121,7 @@ def query(remote_file, cnf, dHeaders):
         return None
     
 
-def download(fs_id, local_save_file, cnf, dHeaders):
+def download(fs_id, local_save_file, cnf, dHeaders=dHeaders):
     """
     download file form pan.baidu.comp
     fs_id : get by call query(), remote tgt file's id
@@ -132,8 +133,8 @@ def download(fs_id, local_save_file, cnf, dHeaders):
     url = "{}?{}".format(download_url, urlencode(params))
     cookies = {item['name']:item['value'] for item in cnf['upload_file_cookies']}
     r = requests.get(url, cookies=cookies, headers=dHeaders)
-    print(debug_info(), "recv http code: ", r.status_code, url[:10])
     result = r.json()
+    print(debug_info(), "recv http code: ", r.status_code, url, result)
     dlink = result['dlink'][0]['dlink']
     print(debug_info(), "get link:", dlink)
 
@@ -151,15 +152,14 @@ def delete(remote_tgt_files, cnf, dHeaders):
         "channel":"chunlei",
         "web":"1",
         "app_id":"250528",
-        "bdstoken":"990e1ae3bd8df4d067740a7d7b75c173",
-        "logid":"MTUwNTgyOTI5MjI3NTAuNDEzMTExOTY5OTM1NDg3Nw",
-        "clienttype":"0"
+        "bdstoken":"37b2bd3eacb31b5683eb02d909c8bf0f",
+        "logid":"MTUwNjA2NTA1NjQ3NjAuODg5MzQ3ODYzODMzNjQwNQ==",
+        "clienttype":"0",
     }
     cookies = {item['name']:item['value'] for item in cnf['upload_file_cookies']}
     data = {'filelist':remote_tgt_files}
     url = "{}?{}".format(delete_url, urlencode(params))
     data = urlencode(data).replace("%27", "%22")
-
     print(debug_info(), url)
     print(debug_info(), data)
     r = requests.post(url, cookies=cookies, headers=dHeaders, data=data)

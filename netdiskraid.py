@@ -10,25 +10,28 @@ from lmutils import debug_info
 from api.api import upload, ls, download, query, delete, dHeaders
 from api import Writer, Reader
 from api.http import HttpWriter, HttpReader
-from config.config import charNum, groupNum, tgt_dir
+from config.config import charNum, groupNum, tgt_dir, BLOCK
 from config.common_url import ls_url
+from config.config_user_0 import cnf as cnf_0
 from config.config_user_1 import cnf as cnf_1
 from config.config_user_2 import cnf as cnf_2
+from meta import FileMeta
 from Err import errors
 from utils import construct_create_file_cookies
 
-cnf = cnf_1
+cnf = cnf_0
+cnfs = [cnf_0, cnf_1, cnf_2]
 
-def local_write(local_file, stream_class=Writer.Writer):
+def local_write(local_src_file, remote_tgt_file, stream_class=Writer.Writer):
     # 从本地文件读取, 拆分后写入到  本地的 thds 个文件
     thds = groupNum
     BLOCK = charNum
-    outs = [stream_class(idx, tgt_dir+"/"+local_file, local_file, cnf) for idx in range(0, thds)]
+    outs = [stream_class(idx, local_src_file, remote_tgt_file, cnf_l[idx]) for idx in range(0, thds)]
     for o in outs:
         o.start()
         print(debug_info(), o)
 
-    with open(local_file, "rb") as inf:
+    with open(local_src_file, "rb") as inf:
         cur_thd_idx = 0
         while True:
             tmp = inf.read1(BLOCK)
@@ -37,7 +40,7 @@ def local_write(local_file, stream_class=Writer.Writer):
                     o.buffer.put(None)
                 print(debug_info(), "read from local done., put None to thd's queue done.")
                 break
-            print(debug_info(), cur_thd_idx, tmp)
+            #print(debug_info(), cur_thd_idx, tmp)
             outs[cur_thd_idx % thds].buffer.put(tmp)
             cur_thd_idx += 1
     for o in outs:
@@ -45,12 +48,12 @@ def local_write(local_file, stream_class=Writer.Writer):
 
     print(debug_info, "write done")
 
-def local_read(local_file, stream_class=Reader.Reader):
+def local_read(remote_tgt_file, local_save_file, stream_class=Reader.Reader):
     # 从本地的 thds 个文件 分别读取后,写入到同一个文件
     thds = groupNum
     BLOCK = charNum
-    of = open(local_file+"_merge", "wb")
-    infs = [stream_class(idx, tgt_dir+"/"+local_file) for idx in range(0, thds)]
+    of = open(local_save_file + "_merge", "wb")
+    infs = [stream_class(idx, remote_tgt_file, local_save_file, cnfs[idx]) for idx in range(0, thds)]
     for i in infs:
         i.start()
     
@@ -90,8 +93,9 @@ def main(args):
         fs_id = query(remote_tgt_file, cnf, dHeaders)
         download(fs_id, local_save_file, cnf, dHeaders)
     elif args.ls:
-        remote_dir = args.ls[0]
-        ls(remote_dir, cnf, dHeaders)
+        print(debug_info(), args.ls)
+        remote_dir, cnf_idx = args.ls
+        ls(remote_dir, cnfs[int(cnf_idx)], dHeaders)
     elif args.query:
         remote_file = args.query[0]
         query(remote_file, cnf, dHeaders)
@@ -105,23 +109,27 @@ def main(args):
         if method == "read":
             local_read(local_file)
     elif args.http:
-        method, local_file = args.http
+        method = args.http[0]
         if method == "write":
-            local_write(local_file,HttpWriter.HttpWriter)
+            local_file, remote_file = args.http[1:3]
+            fmeta = FileMeta(cnfs=[cnf_0, cnf_1], tgt_path=remote_file, local_path=local_file, BLOCK=BLOCK)
+            fmeta.upload()
+            print(debug_info(), fmeta)
         if method == "read":
-            pass
-            #local_read(local_file, HttpReader.HttpReader)
+            remote_file, local_file = args.http[1:3]
+            fmeta = FileMeta(cnfs=[cnf_0, cnf_1], tgt_path=remote_file, local_path=local_file, BLOCK=BLOCK)
+            fmeta.download()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     group = parser.add_mutually_exclusive_group()
     group.add_argument("-upload", nargs='+', metavar='file', help="upload file")
     group.add_argument("-download", nargs='+', metavar='file', help="download file")
-    group.add_argument("-ls", nargs=1, metavar='file', help="list file or dir")
+    group.add_argument("-ls", nargs=2, metavar='file', help="list file or dir")
     group.add_argument("-query", nargs=1, metavar='file', help="query file's fs_id")
     group.add_argument("-delete", nargs=1, metavar='file', help="query file's fs_id")
     group.add_argument("-local", nargs=2, metavar='file', help="query file's fs_id")
-    group.add_argument("-http", nargs=2, metavar='file', help="query file's fs_id")
+    group.add_argument("-http", nargs=3, metavar='file', help="query file's fs_id")
 
     args = parser.parse_args()
     main(args)

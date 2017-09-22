@@ -24,14 +24,14 @@ class HttpWriter(threading.Thread):
                 self.ofstream.write(tmp)
             except Exception as e:
                 # 说明从本地读取写入 线程 buffer 的过程慢
-                print(debug_info(), self.thdIdx, "get from buffer queue timeout")
-
-        print(debug_info(), "flush out stream")
+                print(debug_info(),  "thd : {}, get from buffer queue timeout".format(self.thdIdx))
         self.ofstream.flush()
         self.ofstream.close()
+        print(debug_info(), "thd : {}, start upload to net disk")
+        self.split_upload()
     
     def __str__(self):
-        return "{}, {}, {}".format(self.thdIdx, self.local_src_file, self.remote_tgt_file)
+        return "{}, {}, {}, {}".format(self.thdIdx, self.cnf['cnf_idx'], self.local_src_file, self.remote_tgt_file)
     
     def split_upload(self):
         upload(self.local_src_file, self.remote_tgt_file, self.cnf)

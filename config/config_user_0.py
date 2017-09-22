@@ -1,21 +1,21 @@
 # wx
 cnf = {
-    'cnf_idx' : 1,
-    'url_upload' : "https://c3.pcs.baidu.com/rest/2.0/pcs/superfile2?method=upload&app_id=250528&channel=chunlei&clienttype=0&web=1&BDUSS=pansec_DCb740ccc5511e5e8fedcff06b081203-A5KeGJ08jx8faBF6zOhfvQcSOI4r2puv1yetpc4xyM837%2B%2BCPtmwyvFr3C%2Bk%2FV%2B6UgF1QL%2BTiOOd5Ba0TDApWuSjeYu6EEIDMIdQWRJ7Gb7CbTx%2FULDiLJrREcVbwadkMwtOEWQiGWtKy%2FDs35%2FVRpGB6%2BEDGq7WIFoCWH4oU90FlnemjH%2BK4KKAZ6qRVqJzzeAV8MXGK2lRbMnEhQrk6YfJ6d7IEAUFRcRlEULd%2FBqqAUqGgQ5dlArFuxNgGrt0Ed91kIOJWntmDusHwkFVew%3D%3D&logid=MTUwNjA2MjkwMzI2MDAuMTczMjQ0NTQ3NDMxNjk5OTI=&path=%2Ftestlm%2F%60.pdf&uploadid=N1-MjE4LjIuMTEzLjE4MjoxNTA2MDYzMTI5OjYxMzcyNzQ2NzA1NzE2MDcwOTU=&partseq=0",
+    'cnf_idx' : 0,
+    'url_upload' : "https://c3.pcs.baidu.com/rest/2.0/pcs/superfile2?method=upload&app_id=250528&channel=chunlei&clienttype=0&web=1&BDUSS=pansec_DCb740ccc5511e5e8fedcff06b081203-KfNa2gi4xS0X8HlAERJJ%2FSNe%2F1JxFDy5O0tsiogWqRfl05AmnXUYDy4kTF9gtduj86OjZqqJ1t%2FsCOg2iMgiknjpYdLn9RhpqgMNMRVMG%2FBKN0dWsTdvwScsQkeisKXvWNtBjONJNH5wSsn2vUCiPnBzrWY71yDX8HLsPifG05nWHHiVw8kxuq3Bn5o40mzg4UqYuHSCpJyhKBvZBsumyg7h1k%2BxhysqLRFOvkyLuOxOCSmedJ47BTgHe%2BN9VIcqXSh%2BbDYrYgcdxmdBPbj5mA%3D%3D&logid=MTUwNjA2NDQ4NjAwMzAuMTQzNDk4MDU2MTIyMzkzMDg=&path=%2Fangular-sanitize.min.js&uploadid=N1-MjE4LjIuMTEzLjE4MjoxNTA2MDY0NTgyOjYxMzc2NjQ3MDQ4NzEyMjIzNjk=&partseq=0",
     'data_download' : {
-        "sign":"cVR2RS+LsPAB45Q4i5r0+Hvauz2qLcGNPgQraMg1txcaCHJdoV3mMw==",
-        "timestamp":"1506071647",
-        "fidlist":"[836635011963402]",
+        "sign":"c1V+RXyN7aZT68s43peh+HOMuTHwesveOFB9O8tk4kNAASUPrQ3iag==",
+        "timestamp":"1506072660",
+        "fidlist":"[686133420694270]",
         "type":"dlink",
         "channel":"chunlei",
         "web":"1",
         "app_id":"250528",
-        "bdstoken":"231bc14a50a2149f9f20629a54f224d4",
-        "logid":"MTUwNjA3MjgwNzIyOTAuNzI3MTU2MTAzNDI3OTQ0MQ==",
+        "bdstoken":"cb327d124ccb589eb6815e3ea3436913",
+        "logid":"MTUwNjA3MjcyMzg4MjAuNDA4MTA1MDEyMjI2MzY0MQ",
         "clienttype":"0",
     },
-    'url_create' : "https://pan.baidu.com/api/create?isdir=0&rtype=1&channel=chunlei&web=1&app_id=250528&bdstoken=231bc14a50a2149f9f20629a54f224d4&logid=MTUwNjA3MTY2ODY1ODAuNTA1ODY4NjkwMDk1NDY0NQ==&clienttype=0",
-    'create_file_cookies' : "BAIDUID=F3F29477418394068E7AD5E1CA04867A:FG=1; PSTM=1505715068; PANWEB=1; panlogin_animate_showed=1; BIDUPSID=474AD4AACE66843304525B7042332DC7; FP_UID=9e0b2ed8648d0811a538a0055e1f6ef1; FP_LASTTIME=1506047449589; pan_login_way=1; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; PSINO=3; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; H_PS_PSSID=1426_21125_22160; BDUSS=V4OE4zemYtWHdSQjNZTnk0N0RjN2YxZ1dTZEQxaG43bjI3SzAtWTZwdGRZZXhaTVFBQUFBJCQAAAAAAAAAAAEAAADOyF4sztLSstKqtbGyv7OkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF3UxFld1MRZUz; STOKEN=01d9a4ac9baaed199939f6e02c051a7aa026eb2374510d16e794d7d6dbb7e9ad; SCRC=1c143989b12ae6ca8baa5c072261e442; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1505795212,1505896160,1505971704,1506047437; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1506071649; cflag=15%3A3; PANPSC=1926156963673437141%3Au4Z6slSSmfm%2FMxM5T5NXcun90oj%2BY%2FIsoJhNDqeencsqlDKqEVl%2BkLye0p4N%2BJGFgPQ3h6Vk8O%2Blu9Gzyv2pXxOAD5r1J1nb%2BlijUE5WNRiGX6zniUPvXMv%2BltDwt9lVFmC7XQqR2aV61HK7zNK1qitY6oDerc8JwO6IUlyEdXI5u4Owi7HyOET6EtWQMy2KSSzrHYofj1Q%3D",
+    'url_create' : "https://pan.baidu.com/api/create?isdir=0&rtype=1&channel=chunlei&web=1&app_id=250528&bdstoken=37b2bd3eacb31b5683eb02d909c8bf0f&logid=MTUwNjA2NDU4NDcyNTAuMTI2NzkzNTY5MTgwMzc4OTg=&clienttype=0",
+    'create_file_cookies' : "BAIDUID=F3F29477418394068E7AD5E1CA04867A:FG=1; PSTM=1505715068; PANWEB=1; panlogin_animate_showed=1; BIDUPSID=474AD4AACE66843304525B7042332DC7; FP_UID=9e0b2ed8648d0811a538a0055e1f6ef1; FP_LASTTIME=1506047449589; pan_login_way=1; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; PSINO=3; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; H_PS_PSSID=1426_21125_22160; BDUSS=gzaFNEM3lpan5obEdoMWdYYkp6ZWVuSUc1emIxR345c1l5bEpNbWdyVmlSZXhaTVFBQUFBJCQAAAAAAAAAAAEAAABWD1hhwO7N9dCmNzI3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGK4xFliuMRZSV; STOKEN=ea367efc5155b3a02028040756e5c732e2690565421c53fe4b50897ffd6f19b0; SCRC=98589e9a2db8828163cdb3c7dc434675; Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0=1505795212,1505896160,1505971704,1506047437; Hm_lpvt_7a3960b6f067eb0085b7f96ff5e660b0=1506064485; cflag=15%3A3; PANPSC=7249106583897712332%3AC1EvAaxZsiCWbM9yzQLjSrHQG6qeixv0KdwfHYxEVH0Jf%2BrOGj87LgCe5Tx58Rx6E4APmvUnWdunfq%2BTI1q1Jj0f2V92HMiTJsQph6kIa9mmHq87l3cmso%2FxfFMkpam4dxH9AjPSPnX9Myo4%2FDUtkStY6oDerc8JwO6IUlyEdXI5u4Owi7HyOET6EtWQMy2KSSzrHYofj1Q%3D",
     'upload_file_cookies' : [
         {
             "domain": ".baidu.com",
@@ -60,7 +60,7 @@ cnf = {
         },
         {
             "domain": ".baidu.com",
-            "expirationDate": 1765262667.492557,
+            "expirationDate": 1765264482.579156,
             "hostOnly": False,
             "httpOnly": True,
             "name": "BDUSS",
@@ -69,7 +69,7 @@ cnf = {
             "secure": False,
             "session": False,
             "storeId": "0",
-            "value": "FRhU3dwblp-UGp2TFVhMHBkWnA5RzJxSmxwclQ0MHlocjRpd2lmNW4wUktQdXhaTVFBQUFBJCQAAAAAAAAAAAEAAADOyF4sztLSstKqtbGyv7OkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEqxxFlKscRZS",
+            "value": "gzaFNEM3lpan5obEdoMWdYYkp6ZWVuSUc1emIxR345c1l5bEpNbWdyVmlSZXhaTVFBQUFBJCQAAAAAAAAAAAEAAABWD1hhwO7N9dCmNzI3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGK4xFliuMRZSV",
             "id": 4
         },
         {
@@ -88,7 +88,7 @@ cnf = {
         },
         {
             "domain": ".baidu.com",
-            "expirationDate": 1506926672,
+            "expirationDate": 1506928485,
             "hostOnly": False,
             "httpOnly": False,
             "name": "cflag",
@@ -164,12 +164,12 @@ cnf = {
             "secure": False,
             "session": True,
             "storeId": "0",
-            "value": "1506062672",
+            "value": "1506064485",
             "id": 11
         },
         {
             "domain": ".pan.baidu.com",
-            "expirationDate": 1537598671,
+            "expirationDate": 1537600485,
             "hostOnly": False,
             "httpOnly": False,
             "name": "Hm_lvt_7a3960b6f067eb0085b7f96ff5e660b0",
@@ -183,7 +183,7 @@ cnf = {
         },
         {
             "domain": ".pan.baidu.com",
-            "expirationDate": 1506149073.52222,
+            "expirationDate": 1506150885.785632,
             "hostOnly": False,
             "httpOnly": True,
             "name": "PANPSC",
@@ -192,7 +192,7 @@ cnf = {
             "secure": False,
             "session": False,
             "storeId": "0",
-            "value": "14077761690131637315%3Au4Z6slSSmfm%2FMxM5T5NXcun90oj%2BY%2FIsoJhNDqeencsqlDKqEVl%2BkLye0p4N%2BJGFgPQ3h6Vk8O%2Blu9Gzyv2pXxOAD5r1J1nbfuQbWkz3vyWvFBI%2Bvem9Qcv%2BltDwt9lVFmC7XQqR2aV61HK7zNK1qitY6oDerc8JwO6IUlyEdXI5u4Owi7HyOET6EtWQMy2KSSzrHYofj1Q%3D",
+            "value": "7249106583897712332%3AC1EvAaxZsiCWbM9yzQLjSrHQG6qeixv0KdwfHYxEVH0Jf%2BrOGj87LgCe5Tx58Rx6E4APmvUnWdunfq%2BTI1q1Jj0f2V92HMiTJsQph6kIa9mmHq87l3cmso%2FxfFMkpam4dxH9AjPSPnX9Myo4%2FDUtkStY6oDerc8JwO6IUlyEdXI5u4Owi7HyOET6EtWQMy2KSSzrHYofj1Q%3D",
             "id": 13
         },
         {
@@ -211,7 +211,7 @@ cnf = {
         },
         {
             "domain": ".pan.baidu.com",
-            "expirationDate": 1508654668.912391,
+            "expirationDate": 1508656484.137781,
             "hostOnly": False,
             "httpOnly": True,
             "name": "SCRC",
@@ -220,12 +220,12 @@ cnf = {
             "secure": False,
             "session": False,
             "storeId": "0",
-            "value": "f57d1d12bbf6b2df8861c3796e8188fb",
+            "value": "98589e9a2db8828163cdb3c7dc434675",
             "id": 15
         },
         {
             "domain": ".pan.baidu.com",
-            "expirationDate": 1508654668.912172,
+            "expirationDate": 1508656484.137562,
             "hostOnly": False,
             "httpOnly": True,
             "name": "STOKEN",
@@ -234,7 +234,7 @@ cnf = {
             "secure": False,
             "session": False,
             "storeId": "0",
-            "value": "e9c8930385d03a2d08e5cbe503d5827ebfa890b040030ed7c8f9ec964b8f41f4",
+            "value": "ea367efc5155b3a02028040756e5c732e2690565421c53fe4b50897ffd6f19b0",
             "id": 16
         },
         {
